@@ -1,62 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Java Lab Record - K.Dharhas">
-  <title>Java Lab Record | K.Dharhas</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dharhas | Java Programming Lab</title>
+<meta name="description" content="Java Programming Lab Record — Dharhas, Roll No. 25EU02082">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="topbar">
-        <span class="badge">JAVA LAB</span>
-        <span class="year">2026</span>
-      </div>
-      <h1>Java Lab Record</h1>
-      <p class="subtitle">A clean collection of weekly Java laboratory work.</p>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-dot"></span> JAVA LAB</a>
+  <div class="student">
+    <strong>Dharhas</strong>
+    <span>25EU02082</span>
+  </div>
+</header>
 
-      <div class="student-card">
-        <div>
-          <span class="label">NAME</span>
-          <strong>K.Dharhas</strong>
-        </div>
-        <div>
-          <span class="label">ROLL NO.</span>
-          <strong>YOUR ROLL NO.</strong>
-        </div>
-        <div>
-          <span class="label">COURSE CODE</span>
-          <strong>24CS281</strong>
-        </div>
-        <div>
-          <span class="label">INSTRUCTOR</span>
-          <strong>YOUR INSTRUCTOR</strong>
-        </div>
-      </div>
+<main>
+  <section class="hero">
+    <div class="eyebrow">JAVA PROGRAMMING LAB RECORD</div>
+    <h1>Dharhas<span>.</span></h1>
+    <p>Weeks 1–11 · Java Programming Laboratory</p>
+    <div class="hero-meta">
+      <span>Roll No. <b>25EU02082</b></span>
+      <span>11 Lab Records</span>
     </div>
-  </header>
+  </section>
 
-  <main class="container">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">LAB WORK</span>
-        <h2>Weekly Experiments</h2>
+  <section class="grid" id="weeks"></section>
+</main>
+
+<footer>
+  <span>Dharhas · 25EU02082</span>
+  <span>Java Lab Record</span>
+</footer>
+
+<script>
+const weeks = [{"title": "Week 1", "file": "labs/week-1.pdf"}, {"title": "Week 2", "file": "labs/week-2.pdf"}, {"title": "Week 3", "file": "labs/week-3.pdf"}, {"title": "Week 4", "file": "labs/week-4.pdf"}, {"title": "Week 5", "file": "labs/week-5.pdf"}, {"title": "Week 6", "file": "labs/week-6.pdf"}, {"title": "Week 7", "file": "labs/week-7.pdf"}, {"title": "Week 8", "file": "labs/week-8.pdf"}, {"title": "Week 9", "file": "labs/week-9.pdf"}, {"title": "Week 10", "file": "labs/week-10.pdf"}, {"title": "Week 11", "file": "labs/week-11.pdf"}];
+const grid = document.getElementById("weeks");
+
+weeks.forEach((week, i) => {
+  const card = document.createElement("article");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="num">${String(i+1).padStart(2,"0")}</div>
+    <div class="card-body">
+      <div class="label">LAB RECORD</div>
+      <h2>${week.title}</h2>
+      <div class="actions">
+        <a class="open" href="viewer.html?file=${encodeURIComponent(week.file)}&week=${encodeURIComponent(week.title)}">Open</a>
+        <a class="download" href="${week.file}" download>PDF</a>
       </div>
-      <span class="count">11 Weeks</span>
-    </div>
-
-    <section id="weeks" class="weeks"></section>
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <span>© 2026 K.Dharhas</span>
-      <span>Java Lab Record</span>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    </div>`;
+  grid.appendChild(card);
+});
+</script>
 </body>
 </html>

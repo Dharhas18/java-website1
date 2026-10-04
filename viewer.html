@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Java Lab | Dharhas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="viewer-page">
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-dot"></span> JAVA LAB</a>
+  <div class="student">
+    <strong>Dharhas</strong>
+    <span>25EU02082</span>
+  </div>
+</header>
+<div class="viewer-head">
+  <a href="index.html" class="back">← All weeks</a>
+  <div>
+    <div class="label">LAB RECORD</div>
+    <h1 id="title">Week</h1>
+  </div>
+  <a id="download" class="download big" href="#" download>Download PDF</a>
+</div>
+<main class="pdf-wrap">
+  <iframe id="pdf" title="Java Lab PDF"></iframe>
+</main>
+<script>
+const p = new URLSearchParams(location.search);
+const file = p.get("file");
+const week = p.get("week") || "Lab Record";
+if (!file) location.href = "index.html";
+document.getElementById("title").textContent = week;
+document.getElementById("pdf").src = file;
+document.getElementById("download").href = file;
+</script>
+</body>
+</html>
